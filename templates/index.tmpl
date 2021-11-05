@@ -1,0 +1,29 @@
+{{define "index"}}
+  {{ template "header" }}
+
+      <a href="/create" class="btn btn-primary" > Crear Nuevo </a>
+
+      <table class="table" >
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{range.}}
+            <tr>
+              <td>{{.ID}} </td>
+              <td>{{.Nombre}} </td>
+              <td>{{.Correo}} </td>
+              <td> <a class="btn btn-warning" href="/edit?id={{.ID}}">Editar</a> | <a class="btn btn-danger" href="/delete?id={{.ID}}">Borrar</a> </td>
+            </tr>
+          {{end}}
+        </tbody>
+      </table>
+    
+    {{template "footer" }}
+
+{{end}}
